@@ -1,0 +1,23 @@
+class Solution {
+
+    /**
+     * @param Integer[] 
+     * @return Integer
+     */
+    function minCostToMoveChips($position) {
+        $even_count = 0;
+        $odd_count = 0;
+                foreach ($position as $pos)
+                 {
+            if ($pos % 2 == 0)
+             {
+                $even_count++;
+            }
+             else
+              {
+                $odd_count++;
+            }
+        }
+                return min($even_count, $odd_count);
+    }
+}

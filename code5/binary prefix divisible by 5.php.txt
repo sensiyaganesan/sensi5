@@ -1,0 +1,21 @@
+class Solution {
+
+    /**
+     * @param Integer[] 
+     * @return Boolean[]
+     */
+    function prefixesDivBy5($nums) {
+        $n = count($nums);
+        $result = [];
+        $current = 0;
+        
+        for ($i = 0; $i < $n; $i++) 
+        {
+
+            $current = ($current * 2+$nums[$i])%5;
+            $result[] = ($current === 0);
+        }
+        
+        return $result;
+    }
+}

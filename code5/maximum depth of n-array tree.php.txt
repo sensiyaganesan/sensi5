@@ -1,0 +1,21 @@
+class Solution {
+    /**
+     * @param Node $root
+     * @return integer
+     */
+    function maxDepth($root)
+     {
+        if ($root == null)
+         {
+            return 0;
+        }
+
+        $maxDepth = 0;
+        foreach ($root->children as $child) 
+        {
+            $maxDepth = max($maxDepth, $this->maxDepth($child));
+        }
+
+        return $maxDepth + 1;
+    }
+}

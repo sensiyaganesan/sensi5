@@ -1,0 +1,29 @@
+class Solution {
+    /**
+     * @param String $num1
+     * @param String $num2
+     * @return String
+     */
+    function addStrings($num1, $num2)
+     {
+        $result = "";
+        $carry = 0;
+        $i = strlen($num1) - 1;
+        $j = strlen($num2) - 1;
+        
+        while ($i >= 0 || $j >= 0 || $carry > 0)
+         {
+            $digit1 = ($i >= 0) ? intval($num1[$i]) : 0;
+            $digit2 = ($j >= 0) ? intval($num2[$j]) : 0;
+            
+            $sum = $digit1 + $digit2 + $carry;
+            $carry = intval($sum / 10);
+            $result = ($sum % 10) . $result;
+            
+            $i--;
+            $j--;
+        }
+        
+        return $result;
+    }
+}

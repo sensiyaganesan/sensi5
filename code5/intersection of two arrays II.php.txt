@@ -1,0 +1,34 @@
+class Solution {
+
+    /**
+     * @param Integer[] 
+     * @param Integer[] 
+     * @return Integer[]
+     */
+    function intersect($nums1, $nums2)
+     {
+        $counts = [];
+        $result = [];
+        foreach ($nums1 as $num) 
+        {
+            if (isset($counts[$num])) 
+            {
+                $counts[$num]++;
+            }
+             else
+              {
+                $counts[$num] = 1;
+            }
+        }
+        foreach ($nums2 as $num)
+         {
+            if (isset($counts[$num]) && $counts[$num] > 0)
+             {
+                $result[] = $num;
+                $counts[$num]--;
+            }
+        }
+        
+        return $result;
+    }
+}

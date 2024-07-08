@@ -1,0 +1,38 @@
+class Solution {
+
+    /**
+     * @param String 
+     * @param String 
+     * @return Boolean
+     */
+    function canConstruct($ransomNote, $magazine) 
+    {
+        $counts = [];
+        for ($i = 0; $i < strlen($magazine); $i++)
+         {
+            $char = $magazine[$i];
+            if (isset($counts[$char]))
+             {
+                $counts[$char]++;
+            }
+             else
+              {
+                $counts[$char] = 1;
+            }
+        }
+        for ($i = 0; $i < strlen($ransomNote); $i++)
+         {
+            $char = $ransomNote[$i];
+            if (!isset($counts[$char]) || $counts[$char] == 0)
+             {
+                return false;
+            } 
+            else 
+            {
+                $counts[$char]--;
+            }
+        }
+        
+        return true;
+    }
+}

@@ -1,0 +1,25 @@
+class Solution {
+
+    /**
+     * @param ListNode 
+     * @param Integer 
+     * @return ListNode
+     */
+    function removeElements($head, $val)
+     {
+        $dummy = new ListNode(0);
+        $dummy->next = $head;
+                $current = $dummy;
+        while ($current->next !== null) 
+        {
+            if ($current->next->val == $val)   {
+                $current->next = $current->next->next;
+            }
+             else 
+             {
+             $current = $current->next;
+            }
+        }
+        return $dummy->next;
+    }
+}
